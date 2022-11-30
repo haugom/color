@@ -11,4 +11,4 @@ RUN go build -o /app/app main.go
 FROM busybox
 
 COPY --from=builder ./app /app
-ENTRYPOINT ["/app"]
+ENTRYPOINT ["/app/app"]
