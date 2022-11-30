@@ -1,6 +1,6 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
+# examples https://docs.docker.com/build/ci/github-actions/examples/
 name: Go
 
 on:
