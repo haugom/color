@@ -27,14 +27,6 @@ jobs:
     - name: Build
       run: go build -o app
 
-    - name: Archive artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: app
-        path: |
-          app
-
-
 
   docker:
     needs: build

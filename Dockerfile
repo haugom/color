@@ -1,4 +1,8 @@
-FROM alpine
+FROM golang:1.19 as builder
 
-COPY ./app /app
+RUN go build -o /app main.go
+
+FROM busybox
+
+COPY --from=builder ./app /app
 ENTRYPOINT ["/app"]
