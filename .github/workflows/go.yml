@@ -29,10 +29,10 @@ jobs:
 
     - name: Archive artifact
       uses: actions/upload-artifact@v3
-        with:
-          name: app
-          path: |
-            app
+      with:
+        name: app
+        path: |
+          app
 
 
 
