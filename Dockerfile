@@ -6,8 +6,11 @@ COPY . /app/
 
 RUN ls -all
 
-RUN go build -o application main.go
+RUN CGO_ENABLED=0 go build -o application main.go
 
 FROM busybox
-COPY --from=builder /app/application /usr/local/bin/application
-ENTRYPOINT ["/usr/local/bin/application"]
+RUN mkdir -p /opt/color
+COPY --from=builder /app/application /opt/color/application
+EXPOSE 8081/tcp
+ENTRYPOINT ["/opt/color/application"]
+CMD ["serve"]
