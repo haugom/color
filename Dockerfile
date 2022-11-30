@@ -6,9 +6,8 @@ COPY . /app/
 
 RUN ls -all
 
-RUN go build -o /app/app main.go
+RUN go build -o application main.go
 
 FROM busybox
-
-COPY --from=builder ./app /app
-ENTRYPOINT ["/app/app"]
+COPY --from=builder /app/application /usr/local/bin/application
+ENTRYPOINT ["/usr/local/bin/application"]
