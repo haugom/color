@@ -3,7 +3,7 @@ FROM golang:1.19 as builder
 COPY go.mod ./
 COPY go.sum ./
 COPY *.go ./
-COPY src ./src
+COPY cmd ./cmd
 COPY internal /internal
 
 RUN go build -o /app main.go
