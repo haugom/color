@@ -19,13 +19,21 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.18
+        go-version: 1.19
+
+    - name: Test
+      run: go test -v ./...
 
     - name: Build
       run: go build -o app
 
-    - name: Test
-      run: go test -v ./...
+    - name: Archive artifact
+      uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: |
+            app
+
 
 
   docker:
