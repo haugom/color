@@ -1,12 +1,15 @@
 FROM golang:1.19 as builder
 
-COPY go.mod ./
-COPY go.sum ./
-COPY *.go ./
-COPY cmd ./cmd
-COPY internal /internal
+COPY go.mod ./app/
+COPY go.sum ./app/
+COPY *.go ./app/
+COPY cmd ./app/cmd
+COPY internal /app/internal
+WORKDIR /app
 
-RUN go build -o /app main.go
+RUN ls -all
+
+RUN go build -o /app/app main.go
 
 FROM busybox
 
