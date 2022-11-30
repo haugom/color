@@ -1,11 +1,8 @@
 FROM golang:1.19 as builder
 
-COPY go.mod ./app/
-COPY go.sum ./app/
-COPY *.go ./app/
-COPY cmd ./app/cmd
-COPY internal /app/internal
+RUN mkdir -p /app
 WORKDIR /app
+COPY . /app/
 
 RUN ls -all
 
